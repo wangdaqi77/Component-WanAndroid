@@ -48,7 +48,6 @@ import butterknife.OnClick;
  * @email: 1170762202@qq.com
  * @description:
  */
-@Route(path = RouterFragmentPath.Home.PAGER_HOME)
 public class HomeFg extends BaseFg {
 
     @BindView(R2.id.recyclerView)

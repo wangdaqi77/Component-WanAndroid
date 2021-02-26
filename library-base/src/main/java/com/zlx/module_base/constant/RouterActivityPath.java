@@ -8,17 +8,6 @@ package com.zlx.module_base.constant;
  */
 public class RouterActivityPath {
 
-    /**
-     * 登录组件
-     */
-    public static class Login {
-        private static final String LOGIN = "/module_login";
-        /**
-         * 登录页
-         */
-        public static final String PAGER_LOGIN = LOGIN + "/Login";
-
-    }
 
 
     /**

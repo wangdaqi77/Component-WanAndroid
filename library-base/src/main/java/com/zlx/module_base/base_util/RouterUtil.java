@@ -17,7 +17,4 @@ public class RouterUtil {
         ARouter.getInstance().build(RouterActivityPath.Square.PAGER_SQUARE_LIST).withString("id", id).withString("title", title).navigation();
     }
 
-    public static void launchLogin() {
-        ARouter.getInstance().build(RouterActivityPath.Login.PAGER_LOGIN).navigation();
-    }
 }

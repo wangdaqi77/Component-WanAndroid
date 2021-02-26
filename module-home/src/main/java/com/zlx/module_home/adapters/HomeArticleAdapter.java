@@ -61,17 +61,17 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         } else {
             holder.top.setVisibility(View.GONE);
         }
-        holder.shineButton.setOnClickListener(view -> {
-            if (onArticleCollect != null) {
-                onArticleCollect.onCollect(datasBean);
-            }
-            datasBean.setCollect(!datasBean.isCollect());
-            notifyItemChanged(position);
-        });
+//        holder.shineButton.setOnClickListener(view -> {
+//            if (onArticleCollect != null) {
+//                onArticleCollect.onCollect(datasBean);
+//            }
+//            datasBean.setCollect(!datasBean.isCollect());
+//            notifyItemChanged(position);
+//        });
         holder.vItem.setOnClickListener(view -> {
             RouterUtil.launchWeb(articleListResList.get(position).getLink());
         });
-        holder.shineButton.setChecked(datasBean.isCollect());
+        //holder.shineButton.setChecked(datasBean.isCollect());
     }
 
     @Override
@@ -94,8 +94,8 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         View top;
         @BindView(R2.id.vItem)
         View vItem;
-        @BindView(R2.id.ivCollect)
-        ShineButton shineButton;
+        //@BindView(R2.id.ivCollect)
+        //ShineButton shineButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

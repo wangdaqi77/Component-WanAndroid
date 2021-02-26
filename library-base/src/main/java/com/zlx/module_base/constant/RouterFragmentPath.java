@@ -8,18 +8,6 @@ package com.zlx.module_base.constant;
  */
 public class RouterFragmentPath {
 
-    /**
-     * 首页组件
-     */
-    public static class Home {
-        private static final String HOME = "/module_home";
-
-        /**
-         * 首页
-         */
-        public static final String PAGER_HOME = HOME + "/Home";
-
-    }
 
     /**
      * 项目 组件

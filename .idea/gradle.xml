@@ -18,8 +18,11 @@
             <option value="$PROJECT_DIR$/library-network" />
             <option value="$PROJECT_DIR$/library-widget" />
             <option value="$PROJECT_DIR$/module-home" />
+            <option value="$PROJECT_DIR$/module-home/module-home-api" />
             <option value="$PROJECT_DIR$/module-login" />
+            <option value="$PROJECT_DIR$/module-login/module-login-api" />
             <option value="$PROJECT_DIR$/module-mine" />
+            <option value="$PROJECT_DIR$/module-mine/module-mine-api" />
             <option value="$PROJECT_DIR$/module-project" />
             <option value="$PROJECT_DIR$/module-public" />
             <option value="$PROJECT_DIR$/module-square" />

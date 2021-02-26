@@ -14,11 +14,10 @@ android {
         }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+
+            project.kapt.arguments {
+               arg("AROUTER_MODULE_NAME",project.getName())
             }
-        }
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -51,8 +50,8 @@ dependencies {
     implementation project(':library-network')
     implementation project(':library-widget')
     implementation project(':library-aop')
-    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
-    annotationProcessor rootProject.ext.dependencies.arouterCompiler
+    kapt rootProject.ext.dependencies.butterknifeCompiler
+    kapt rootProject.ext.dependencies.arouterCompiler
     if (isRunModule.toBoolean()) {
         implementation project(':module-web')
     }

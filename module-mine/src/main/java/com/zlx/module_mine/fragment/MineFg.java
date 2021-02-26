@@ -1,5 +1,6 @@
 package com.zlx.module_mine.fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 import androidx.constraintlayout.utils.widget.ImageFilterButton;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.zlx.library_aop.checklogin.annotation.CheckLogin;
 import com.zlx.module_base.base_api.res_data.UserInfo;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
@@ -29,6 +29,7 @@ import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
 import com.zlx.widget.waveview.WaveView;
 
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -40,7 +41,6 @@ import butterknife.OnClick;
  * Date: 2020/9/17 11:30
  * Description: 我的
  */
-@Route(path = RouterFragmentPath.Mine.PAGER_MINE)
 public class MineFg extends BaseFg {
 
     @BindView(R2.id.waveView)
@@ -117,10 +117,12 @@ public class MineFg extends BaseFg {
                 }));
     }
 
-    @CheckLogin
     @OnClick({R2.id.ivSet, R2.id.tvName, R2.id.tvScoreRankList, R2.id.llHead, R2.id.llScore,
             R2.id.llCollect, R2.id.llShare, R2.id.llProjects, R2.id.llAbout})
     public void onViewClicked(View view) {
+        if (!CheckLogin.check(requireActivity())) {
+            return;
+        }
         int id = view.getId();
         if (id == R.id.ivSet) {
             SettingAc.launch(getContext());

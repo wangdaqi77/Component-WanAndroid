@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
@@ -9,14 +11,13 @@ android {
 
         //指定room.schemaLocation生成的文件路径
         //解决room编译警告
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [
-                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
-                        "room.incremental"     : "true",
-                        "room.expandProjection": "true"]
-            }
+
+        project.kapt.arguments {
+            arg("room.schemaLocation", "$projectDir/schemas".toString())
+            arg("room.incremental", "true")
+            arg("room.expandProjection", "true")
         }
+
     }
 
     buildTypes {

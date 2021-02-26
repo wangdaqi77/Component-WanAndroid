@@ -1,9 +1,8 @@
 include ':library-db'
-include ':module-login'
 include ':library-aop'
 include ':library-common'
 include ':module-web'
-include ':module-mine'
+//include ':module-mine'
 include ':module-square'
 include ':module-public'
 include ':library-network'
@@ -11,4 +10,70 @@ include ':module-project'
 include ':module-home'
 include ':library-widget'
 include ':library-base'
-include ':app'
+//include ':library-login'
+//include ':app'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url "file://${rootProject.projectDir.parentFile.absolutePath}/Component/libraries/repo" }
+        // maven { url "https://wannng.bintray.com/maven" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.2'
+        classpath 'com.kunpeng.tools.gradle:component-plugin:0.0.6'
+    }
+}
+
+apply plugin: 'component-settings'
+component {
+
+    app {
+        projectName = 'app'
+        projectDir = new File("./app")
+        dependencies = [
+                module("Mine"),
+                module("Login"),
+                module("Home"),
+        ]
+    }
+
+    runAppConfig {
+        applicationId = "test.component"
+        versionCode = 1
+        versionName = "1.0"
+    }
+//
+//    module("A") {
+//        projectName = "module-a"
+//        projectDir = new File("./module-a")
+//        dependencies = [ module("B") ]
+//
+//    }
+
+
+    module("Home") {
+        projectName = "module-home"
+        projectDir = new File("./module-home")
+    }
+
+    module("Mine") {
+        projectName = "module-mine"
+        projectDir = new File("./module-mine")
+        dependencies = [ module("Login") ]
+    }
+
+    module("Login") {
+        projectName = "module-login"
+        projectDir = new File("./module-login")
+
+//        runApp = false
+//        runAppConfig {
+//            applicationId = "com.kunpeng.login"
+//            mainActivity = "com.kunpeng.login.ui.LoginActivity"
+//        }
+    }
+
+}

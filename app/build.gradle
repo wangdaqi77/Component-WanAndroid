@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-aspectjx'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -17,11 +19,10 @@ android {
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+
+            project.kapt.arguments {
+               arg("AROUTER_MODULE_NAME",project.getName())
             }
-        }
     }
 
     signingConfigs {
@@ -65,17 +66,17 @@ dependencies {
     implementation project(':library-common')
     implementation project(':library-aop')
     if (!isRunModule.toBoolean()) {
-        implementation project(':module-home')
+//        implementation project(':module-home')
         implementation project(':module-project')
         implementation project(':module-square')
         implementation project(':module-public')
-        implementation project(':module-mine')
+//        implementation project(':module-mine')
         implementation project(':module-web')
-        implementation project(':module-login')
+//        implementation project(':module-login')
     }
 
 
-    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
-    annotationProcessor rootProject.ext.dependencies.arouterCompiler
+    kapt rootProject.ext.dependencies.butterknifeCompiler
+    kapt rootProject.ext.dependencies.arouterCompiler
 
 }

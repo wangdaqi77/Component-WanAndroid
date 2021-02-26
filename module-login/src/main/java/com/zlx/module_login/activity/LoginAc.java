@@ -11,7 +11,6 @@ import com.zlx.module_login.R;
  * Email: 1170762202@qq.com
  * Description:
  */
-@Route(path = RouterActivityPath.Login.PAGER_LOGIN)
 public class LoginAc extends BaseAc {
 
 

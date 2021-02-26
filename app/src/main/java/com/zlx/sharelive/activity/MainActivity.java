@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.kunpeng.component.ModuleProviderEx;
+import com.kunpeng.component.module.api.Home;
+import com.kunpeng.component.module.api.Mine;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_base.constant.RouterFragmentPath;
@@ -98,7 +101,7 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     @Override
     public Fragment getFragment(int position) {
         if (position == 0) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
+            return ModuleProviderEx.dependencyProvider().getDependency(Home.class).getLauncher().newHomeFragment();
         } else if (position == 1) {
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Project.PAGER_PROJECT).navigation();
 
@@ -108,7 +111,7 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Public.PAGER_PUBLIC).navigation();
 
         } else if (position == 4) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Mine.PAGER_MINE).navigation();
+            return ModuleProviderEx.dependencyProvider().getDependency(Mine.class).getLauncher().newMineFragment();
         }
         return null;
     }

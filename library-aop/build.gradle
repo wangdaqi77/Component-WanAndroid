@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'android-aspectjx'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -10,11 +12,10 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
 
         consumerProguardFiles "consumer-rules.pro"
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+
+            project.kapt.arguments {
+               arg("AROUTER_MODULE_NAME",project.getName())
             }
-        }
     }
 
     buildTypes {
@@ -33,7 +34,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     api "org.aspectj:aspectjrt:1.9.5"
     api rootProject.ext.dependencies.arouterApi
-    annotationProcessor rootProject.ext.dependencies.arouterCompiler
+    kapt rootProject.ext.dependencies.arouterCompiler
     api project(':library-base')
     api rootProject.ext.dependencies.rxpermissions
 
