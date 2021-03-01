@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.zlx.module_base.constant.RouterFragmentPath;
+
 import com.zlx.module_square.impl.TabPagerListener;
 
 import java.util.ArrayList;

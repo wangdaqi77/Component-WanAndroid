@@ -1,5 +1,6 @@
 package com.zlx.module_project.activity;
 
+import com.kunpeng.component.annotation.api.Launcher;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_project.R;
 

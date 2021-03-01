@@ -15,9 +15,6 @@ android {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
 
-            project.kapt.arguments {
-               arg("AROUTER_MODULE_NAME",project.getName())
-            }
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -46,12 +43,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(':library-base')
+    apiUse project(':library-base') // api模块需要使用
     implementation project(':library-network')
     implementation project(':library-widget')
     implementation project(':library-aop')
     kapt rootProject.ext.dependencies.butterknifeCompiler
-    kapt rootProject.ext.dependencies.arouterCompiler
     if (isRunModule.toBoolean()) {
         implementation project(':module-web')
     }

@@ -14,9 +14,9 @@ android {
         consumerProguardFiles "consumer-rules.pro"
 
 
-            project.kapt.arguments {
-               arg("AROUTER_MODULE_NAME",project.getName())
-            }
+        project.kapt.arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
     }
 
     buildTypes {

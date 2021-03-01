@@ -1,5 +1,7 @@
 package com.zlx.module_square.base;
 
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.flexbox.FlexboxLayout;
+import com.kunpeng.component.ModuleProviderEx;
+import com.kunpeng.component.module.api.Square;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_fg.BaseFg;
@@ -92,7 +96,12 @@ public class BaseSquareFg extends BaseFg {
                     AppCompatTextView textView = findLabel(flexboxLayout);
                     textView.setText(child.getName());
                     textView.setOnClickListener(v -> {
-                        RouterUtil.launchArticleList(child.getId(), child.getName());
+                        Context context = getContext();
+                        if (context == null) return;
+                        Intent intent = ModuleProviderEx.dependencyProvider().getDependency(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
+                        intent.putExtra("id", child.getId());
+                        intent.putExtra("title", child.getName());
+                        startActivity(intent);
                     });
                     flexboxLayout.addView(textView);
                 }

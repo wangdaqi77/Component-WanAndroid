@@ -1,5 +1,6 @@
 package com.zlx.module_square.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
@@ -7,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.flexbox.FlexboxLayout;
+import com.kunpeng.component.ModuleProviderEx;
+import com.kunpeng.component.module.api.Square;
 import com.zlx.module_base.base_adapter.BaseRecycleAdapter;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_util.RouterUtil;
@@ -48,7 +51,10 @@ public class RvAdapterTree extends BaseRecycleAdapter<TreeListRes> {
             AppCompatTextView labelTv = createOrGetCacheTv(flexLayout);
             labelTv.setText(datasBean.getName());
             labelTv.setOnClickListener(v -> {
-                RouterUtil.launchArticleList(datasBean.getId(), datasBean.getName());
+                Intent intent = ModuleProviderEx.dependencyProvider().getDependency(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
+                intent.putExtra("id", datasBean.getId());
+                intent.putExtra("title", datasBean.getName());
+                v.getContext().startActivity(intent);
             });
             flexLayout.addView(labelTv);
         }

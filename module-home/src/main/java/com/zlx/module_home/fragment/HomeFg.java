@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
+import com.kunpeng.component.annotation.api.Launcher;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.header.TwoLevelHeader;
 import com.scwang.smart.refresh.header.listener.OnTwoLevelListener;
@@ -25,7 +26,7 @@ import com.zlx.module_base.base_api.res_data.ArticleListRes;
 import com.zlx.module_base.base_api.res_data.BannerRes;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.module_base.constant.RouterFragmentPath;
+
 import com.zlx.module_home.R;
 import com.zlx.module_home.R2;
 import com.zlx.module_home.activity.SearchAc;
@@ -48,6 +49,7 @@ import butterknife.OnClick;
  * @email: 1170762202@qq.com
  * @description:
  */
+@Launcher
 public class HomeFg extends BaseFg {
 
     @BindView(R2.id.recyclerView)

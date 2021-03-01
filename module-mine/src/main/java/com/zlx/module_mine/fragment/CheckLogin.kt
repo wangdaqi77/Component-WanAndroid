@@ -12,7 +12,8 @@ object CheckLogin {
         return if (userInfo == null) {
             dependency<Login>()
                     .launcher
-                    .startLogin(activity)
+                    .newActivityIntentForLoginAc(activity)
+                    .run { activity.startActivity(this) }
             false
         } else {
             true

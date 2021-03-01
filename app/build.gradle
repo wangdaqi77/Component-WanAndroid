@@ -20,9 +20,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
 
-            project.kapt.arguments {
-               arg("AROUTER_MODULE_NAME",project.getName())
-            }
+        project.kapt.arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
     }
 
     signingConfigs {
@@ -67,11 +67,11 @@ dependencies {
     implementation project(':library-aop')
     if (!isRunModule.toBoolean()) {
 //        implementation project(':module-home')
-        implementation project(':module-project')
-        implementation project(':module-square')
-        implementation project(':module-public')
+//        implementation project(':module-project')
+//        implementation project(':module-square')
+//        implementation project(':module-public')
 //        implementation project(':module-mine')
-        implementation project(':module-web')
+//        implementation project(':module-web')
 //        implementation project(':module-login')
     }
 

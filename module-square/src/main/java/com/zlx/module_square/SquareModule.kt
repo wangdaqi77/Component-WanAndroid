@@ -1,4 +1,5 @@
-package com.zlx.module_home
+package com.zlx.module_square
+
 
 import com.kunpeng.component.annotation.module.ModuleExecutor
 import com.kunpeng.component.module.Module
@@ -7,7 +8,7 @@ import com.kunpeng.component.module.SelfApiModuleProvider
 
 
 @ModuleExecutor
-class HomeModule: Module {
+class SquareModule: Module {
 
     override fun onEvaluate(provider: SelfApiModuleProvider) {
         // Call here when evaluating.

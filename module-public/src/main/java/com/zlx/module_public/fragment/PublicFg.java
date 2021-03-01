@@ -15,11 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kunpeng.component.annotation.api.Launcher;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.module_base.constant.RouterFragmentPath;
+
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
@@ -47,7 +48,7 @@ import butterknife.BindView;
  * Date: 2020/9/17 11:21
  * Description: 公众号
  */
-@Route(path = RouterFragmentPath.Public.PAGER_PUBLIC)
+@Launcher
 public class PublicFg extends BaseFg implements OnRefreshLoadMoreListener {
     private static final long RIPPLE_DURATION = 250;
 

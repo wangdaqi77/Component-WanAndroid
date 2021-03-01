@@ -10,9 +10,6 @@ android {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
 
-            project.kapt.arguments {
-               arg("AROUTER_MODULE_NAME",project.getName())
-            }
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -30,8 +27,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    api project(':library-base')
+    implementation project(':library-base')
+    apiUse project(':library-base')
     kapt rootProject.ext.dependencies.butterknifeCompiler
-    kapt rootProject.ext.dependencies.arouterCompiler
     api 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
 }

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kunpeng.component.annotation.api.Launcher;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -33,7 +34,7 @@ import butterknife.BindView;
  * Email: 1170762202@qq.com
  * Description:广场列表
  */
-@Route(path = RouterActivityPath.Square.PAGER_SQUARE_LIST)
+@Launcher
 public class SquareListAc extends BaseAc implements OnRefreshLoadMoreListener {
 
     @BindView(R2.id.recyclerView)

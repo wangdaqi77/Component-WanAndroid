@@ -4,12 +4,10 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.kunpeng.component.ModuleProviderEx;
+import com.kunpeng.component.annotation.api.Launcher;
+import com.kunpeng.component.module.api.Square;
 import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_square.R;
 import com.zlx.module_square.R2;
 import com.zlx.module_square.adapters.TabNavigatorAdapter;
@@ -33,7 +31,7 @@ import butterknife.BindView;
  * Date: 2020/9/17 11:27
  * Description: 广场
  */
-@Route(path = RouterFragmentPath.Square.PAGER_SQUARE)
+@Launcher
 public class SquareFg extends BaseFg implements TabPagerListener {
 
     @BindView(R2.id.magicIndicator)
@@ -77,9 +75,9 @@ public class SquareFg extends BaseFg implements TabPagerListener {
     @Override
     public Fragment getFragment(int position) {
         if (position == 0) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Square.PAGER_SYSTEM).navigation();
+            return ModuleProviderEx.dependencyProvider().getDependency(Square.class).getLauncher().newFragmentForSystemFg();
         } else if (position == 1) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Square.PAGER_NAVIGATION).navigation();
+            return ModuleProviderEx.dependencyProvider().getDependency(Square.class).getLauncher().newFragmentForNavigationFg();
         }
         return null;
     }

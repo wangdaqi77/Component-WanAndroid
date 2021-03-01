@@ -13,6 +13,7 @@ import com.just.agentweb.AgentWeb;
 import com.just.agentweb.DefaultWebClient;
 import com.just.agentweb.WebChromeClient;
 import com.just.agentweb.WebViewClient;
+import com.kunpeng.component.annotation.api.Launcher;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_network.util.LogUtil;
@@ -25,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-@Route(path = RouterActivityPath.Web.PAGER_WEB)
+@Launcher
 public class WebAc extends BaseAc {
 
     @BindView(R2.id.parent)

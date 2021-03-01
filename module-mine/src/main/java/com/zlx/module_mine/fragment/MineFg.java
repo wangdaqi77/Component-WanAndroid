@@ -10,11 +10,12 @@ import android.widget.TextView;
 import androidx.constraintlayout.utils.widget.ImageFilterButton;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kunpeng.component.annotation.api.Launcher;
 import com.zlx.module_base.base_api.res_data.UserInfo;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.database.MMkvHelper;
-import com.zlx.module_base.constant.RouterFragmentPath;
+
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 import com.zlx.module_mine.activity.AboutAuthorAc;
@@ -41,6 +42,7 @@ import butterknife.OnClick;
  * Date: 2020/9/17 11:30
  * Description: 我的
  */
+@Launcher
 public class MineFg extends BaseFg {
 
     @BindView(R2.id.waveView)

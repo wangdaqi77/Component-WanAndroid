@@ -12,9 +12,12 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.kunpeng.component.ModuleProviderEx;
 import com.kunpeng.component.module.api.Home;
 import com.kunpeng.component.module.api.Mine;
+import com.kunpeng.component.module.api.Project;
+import com.kunpeng.component.module.api.Publics;
+import com.kunpeng.component.module.api.Square;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.constant.RouterActivityPath;
-import com.zlx.module_base.constant.RouterFragmentPath;
+
 import com.zlx.sharelive.R;
 import com.zlx.sharelive.adapter.VpAdapterMain;
 import com.zlx.sharelive.impl.TabPagerListener;
@@ -101,17 +104,15 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     @Override
     public Fragment getFragment(int position) {
         if (position == 0) {
-            return ModuleProviderEx.dependencyProvider().getDependency(Home.class).getLauncher().newHomeFragment();
+            return ModuleProviderEx.dependencyProvider().getDependency(Home.class).getLauncher().newFragmentForHomeFg();
         } else if (position == 1) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Project.PAGER_PROJECT).navigation();
-
+            return ModuleProviderEx.dependencyProvider().getDependency(Project.class).getLauncher().newFragmentForProjectFg();
         } else if (position == 2) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Square.PAGER_SQUARE).navigation();
+            return ModuleProviderEx.dependencyProvider().getDependency(Square.class).getLauncher().newFragmentForSquareFg();
         } else if (position == 3) {
-            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Public.PAGER_PUBLIC).navigation();
-
+            return ModuleProviderEx.dependencyProvider().getDependency(Publics.class).getLauncher().newFragmentForPublicFg();
         } else if (position == 4) {
-            return ModuleProviderEx.dependencyProvider().getDependency(Mine.class).getLauncher().newMineFragment();
+            return ModuleProviderEx.dependencyProvider().getDependency(Mine.class).getLauncher().newFragmentForMineFg();
         }
         return null;
     }

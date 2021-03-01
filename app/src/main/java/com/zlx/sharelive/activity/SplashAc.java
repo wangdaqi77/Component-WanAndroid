@@ -1,5 +1,7 @@
 package com.zlx.sharelive.activity;
 
+import android.content.Intent;
+
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_api.res_data.ProjectListRes;
 import com.zlx.module_base.base_api.util.ApiUtil;
@@ -41,7 +43,8 @@ public class SplashAc extends BaseAc {
                         if (dataData.size() > 0) {
                             particleview.setOnParticleAnimListener(() -> {
                                 MMkvHelper.getInstance().saveProjectTabs(dataData);
-                                RouterUtil.launchMain();
+                                Intent intent =new Intent(SplashAc.this,MainActivity.class);
+                                SplashAc.this.startActivity(intent);
                                 finish();
                             });
                         }

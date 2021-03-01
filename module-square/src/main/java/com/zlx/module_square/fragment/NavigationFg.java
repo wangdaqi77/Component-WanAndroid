@@ -1,9 +1,10 @@
 package com.zlx.module_square.fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kunpeng.component.annotation.api.Launcher;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_api.util.ApiUtil;
-import com.zlx.module_base.constant.RouterFragmentPath;
+
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
@@ -17,7 +18,7 @@ import java.util.List;
  * Email: 1170762202@qq.com
  * Description: 导航
  */
-@Route(path = RouterFragmentPath.Square.PAGER_NAVIGATION)
+@Launcher
 public class NavigationFg extends BaseSquareFg {
 
     @Override

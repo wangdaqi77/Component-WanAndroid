@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kunpeng.component.annotation.api.Launcher;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -20,7 +21,7 @@ import com.zlx.module_base.base_api.res_data.ProjectListRes;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.base_util.RouterUtil;
-import com.zlx.module_base.constant.RouterFragmentPath;
+
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
@@ -37,7 +38,7 @@ import butterknife.BindView;
 
 import static android.content.ContentValues.TAG;
 
-@Route(path = RouterFragmentPath.Project.PAGER_PROJECT)
+@Launcher
 public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
 
 

@@ -3,15 +3,23 @@ include ':library-aop'
 include ':library-common'
 include ':module-web'
 //include ':module-mine'
-include ':module-square'
-include ':module-public'
+//include ':module-square'
+//include ':module-public'
 include ':library-network'
-include ':module-project'
-include ':module-home'
+//include ':module-project'
+//include ':module-home'
 include ':library-widget'
 include ':library-base'
 //include ':library-login'
 //include ':app'
+
+include(":component-api")
+project(":component-api").projectDir = new File("../Component/component-api")
+include(":component-compiler")
+project(":component-compiler").projectDir = new File("../Component/component-compiler")
+include(":component-annotation")
+project(":component-annotation").projectDir = new File("../Component/component-annotation")
+
 
 buildscript {
     repositories {
@@ -23,12 +31,13 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.2'
-        classpath 'com.kunpeng.tools.gradle:component-plugin:0.0.6'
+        classpath 'com.kunpeng.tools.gradle:component-plugin:0.0.7'
     }
 }
 
 apply plugin: 'component-settings'
 component {
+    dev_env = true
 
     app {
         projectName = 'app'
@@ -37,6 +46,10 @@ component {
                 module("Mine"),
                 module("Login"),
                 module("Home"),
+                module("Project"),
+                module("Web"),
+                module("Publics"),
+                module("Square"),
         ]
     }
 
@@ -45,29 +58,36 @@ component {
         versionCode = 1
         versionName = "1.0"
     }
-//
-//    module("A") {
-//        projectName = "module-a"
-//        projectDir = new File("./module-a")
-//        dependencies = [ module("B") ]
-//
-//    }
 
 
     module("Home") {
         projectName = "module-home"
-        projectDir = new File("./module-home")
+        //projectDir = new File("./module-home")
+    }
+
+    module("Project") {
+        projectName = "module-project"
+    }
+
+    module("Web") {
+        projectName = "module-web"
+    }
+
+    module("Publics") {
+        projectName = "module-public"
+    }
+
+    module("Square") {
+        projectName = "module-square"
     }
 
     module("Mine") {
         projectName = "module-mine"
-        projectDir = new File("./module-mine")
         dependencies = [ module("Login") ]
     }
 
     module("Login") {
         projectName = "module-login"
-        projectDir = new File("./module-login")
 
 //        runApp = false
 //        runAppConfig {
