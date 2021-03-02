@@ -12,10 +12,6 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
 
         consumerProguardFiles "consumer-rules.pro"
-
-        project.kapt.arguments {
-            arg("AROUTER_MODULE_NAME", project.getName())
-        }
     }
 
     buildTypes {
@@ -33,8 +29,6 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     api "org.aspectj:aspectjrt:1.9.5"
-    api rootProject.ext.dependencies.arouterApi
-    kapt rootProject.ext.dependencies.arouterCompiler
     api project(':library-base')
     api rootProject.ext.dependencies.rxpermissions
 

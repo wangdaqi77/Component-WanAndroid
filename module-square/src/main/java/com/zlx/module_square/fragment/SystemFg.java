@@ -1,6 +1,5 @@
 package com.zlx.module_square.fragment;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.kunpeng.component.annotation.api.Launcher;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_api.util.ApiUtil;

@@ -8,14 +8,13 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.just.agentweb.AgentWeb;
 import com.just.agentweb.DefaultWebClient;
 import com.just.agentweb.WebChromeClient;
 import com.just.agentweb.WebViewClient;
 import com.kunpeng.component.annotation.api.Launcher;
 import com.zlx.module_base.base_ac.BaseAc;
-import com.zlx.module_base.constant.RouterActivityPath;
+
 import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_web.R;
 import com.zlx.module_web.R2;

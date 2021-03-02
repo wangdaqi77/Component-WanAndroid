@@ -1,18 +1,20 @@
 package com.zlx.module_square.activity;
 
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kunpeng.component.ModuleEx;
 import com.kunpeng.component.annotation.api.Launcher;
+import com.kunpeng.component.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.module_base.adapters.RvAdapterArticleList;
 import com.zlx.module_base.base_ac.BaseAc;
-import com.zlx.module_base.base_util.RouterUtil;
-import com.zlx.module_base.constant.RouterActivityPath;
+
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
@@ -84,7 +86,9 @@ public class SquareListAc extends BaseAc implements OnRefreshLoadMoreListener {
         });
         adapterArticleList.setOnItemClickListener((adapter, view, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
-            RouterUtil.launchWeb(data.get(position).getLink());
+            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            intent.putExtra("webUrl", data.get(position).getLink());
+            startActivity(intent);
         });
         listArticle(id, true);
     }

@@ -11,13 +11,14 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.flexbox.FlexboxLayout;
-import com.kunpeng.component.ModuleProviderEx;
+import com.kunpeng.component.ModuleEx;
 import com.kunpeng.component.module.api.Square;
+import com.kunpeng.component.module.api.Web;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.base_util.ResourceUtil;
-import com.zlx.module_base.base_util.RouterUtil;
+
 import com.zlx.module_square.R;
 import com.zlx.module_square.R2;
 import com.zlx.widget.indicatorview.IndicatorItem;
@@ -98,7 +99,7 @@ public class BaseSquareFg extends BaseFg {
                     textView.setOnClickListener(v -> {
                         Context context = getContext();
                         if (context == null) return;
-                        Intent intent = ModuleProviderEx.dependencyProvider().getDependency(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
+                        Intent intent = ModuleEx.moduleOf(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
                         intent.putExtra("id", child.getId());
                         intent.putExtra("title", child.getName());
                         startActivity(intent);
@@ -111,7 +112,9 @@ public class BaseSquareFg extends BaseFg {
                     AppCompatTextView textView = findLabel(flexboxLayout);
                     textView.setText(article.getTitle());
                     textView.setOnClickListener(v -> {
-                        RouterUtil.launchWeb(article.getLink());
+                        Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(v.getContext());
+                        intent.putExtra("webUrl", article.getLink());
+                        startActivity(intent);
                     });
                     flexboxLayout.addView(textView);
                 }

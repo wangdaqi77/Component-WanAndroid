@@ -3,11 +3,11 @@ package com.zlx.module_mine.activity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.module.api.Mine;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_manage.ActivityUtil;
 import com.zlx.module_base.base_util.LanguageUtil;
-import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 import com.zlx.module_mine.adapters.RvAdapterLanguageSet;
@@ -46,8 +46,10 @@ public class LanguageSetAc extends BaseAc {
         adapter.setListener(position -> {
             LanguageBean languageBean = adapter.getDatas().get(position);
             LanguageUtil.switchLanguage(languageBean.getLocale());
-            ActivityUtil.finishAllActivity();
-            ARouter.getInstance().build(RouterActivityPath.Main.PAGER_MAIN).navigation();
+            ModuleEx.moduleOf(Mine.class)
+                    .getEvent()
+                    .getLanguageChanged()
+                    .setValue(languageBean);
         });
     }
 

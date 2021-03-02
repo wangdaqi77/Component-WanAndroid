@@ -7,8 +7,8 @@ import com.kunpeng.component.app.AppModule
 import com.kunpeng.component.config.ComponentConfig
 import com.kunpeng.component.log.ILogger
 import com.kunpeng.component.log.Level
-import com.kunpeng.component.module.SafeDependencyApiModuleProvider
-import com.kunpeng.component.module.SelfApiModuleProvider
+import com.kunpeng.component.module.SafeModuleProvider
+import com.kunpeng.component.module.SelfModuleProvider
 
 object Init {
     @JvmStatic
@@ -22,10 +22,13 @@ object Init {
         }
 
         ComponentInitializer.init(config, object : AppModule(application) {
-            override fun onEvaluate(provider: SelfApiModuleProvider) {}
+            override fun onEvaluate(provider: SelfModuleProvider) {
+                // Call here when evaluating, only call self by provider.getSelf().
+            }
 
-            override fun onExecute(provider: SafeDependencyApiModuleProvider) {}
-
+            override fun onExecute(provider: SafeModuleProvider) {
+                // Now can call other module by provider.getModule().
+            }
         })
     }
 }

@@ -6,12 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 
 import com.zlx.module_square.impl.TabPagerListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @date: 2019\3\5 0005

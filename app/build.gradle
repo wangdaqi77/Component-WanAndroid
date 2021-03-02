@@ -19,10 +19,6 @@ android {
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-
-        project.kapt.arguments {
-            arg("AROUTER_MODULE_NAME", project.getName())
-        }
     }
 
     signingConfigs {
@@ -77,6 +73,5 @@ dependencies {
 
 
     kapt rootProject.ext.dependencies.butterknifeCompiler
-    kapt rootProject.ext.dependencies.arouterCompiler
 
 }

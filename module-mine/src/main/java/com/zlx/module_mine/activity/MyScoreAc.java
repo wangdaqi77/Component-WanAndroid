@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
+import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -16,7 +18,7 @@ import com.zlx.module_base.base_api.res_data.RankBean;
 import com.zlx.module_base.base_api.res_data.RankListRes;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
-import com.zlx.module_base.base_util.RouterUtil;
+
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 import com.zlx.module_mine.adapters.RvAdapterMyScoreHeader;
@@ -69,7 +71,9 @@ public class MyScoreAc extends BaseAc implements OnRefreshLoadMoreListener {
         setAcTitle("我的积分");
         setRightImg(R.mipmap.ic_question);
         setOnRightImgClickListener(view -> {
-            RouterUtil.launchWeb(C.INTERGRAL_URL);
+            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            intent.putExtra("webUrl", C.INTERGRAL_URL);
+            startActivity(intent);
         });
 
         adapterMyScoreHeader = new RvAdapterMyScoreHeader();

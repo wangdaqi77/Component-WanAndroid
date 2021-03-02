@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.module.api.Web;
 import com.zlx.module_base.constant.C;
 import com.zlx.module_base.base_ac.BaseAc;
-import com.zlx.module_base.base_util.RouterUtil;
+
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 
@@ -39,12 +41,18 @@ public class AboutUs extends BaseAc {
     @OnClick({R2.id.llOfficial, R2.id.llNetContent, R2.id.llLibAddr})
     public void onViewClicked(View view) {
         int id = view.getId();
+        String url = null;
         if (id == R.id.llOfficial) {
-            RouterUtil.launchWeb(C.WAN_ANDROID);
+            url = C.WAN_ANDROID;
         } else if (id == R.id.llNetContent) {
-            RouterUtil.launchWeb(C.URL_ABOUT);
+            url = C.URL_ABOUT;
         } else if (id == R.id.llLibAddr) {
-            RouterUtil.launchWeb(C.SOURCE_URL);
+            url = C.SOURCE_URL;
+        }
+        if (url != null) {
+            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            intent.putExtra("webUrl", url);
+            startActivity(intent);
         }
     }
 }

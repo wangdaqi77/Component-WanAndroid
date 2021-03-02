@@ -25,10 +25,16 @@ android {
     }
 }
 
+apiProjectConfig {
+    dependencies {
+        implementation project(':library-base')
+    }
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':library-base')
-    apiUse project(':library-base')
+    implementation project(':library-base')
     kapt rootProject.ext.dependencies.butterknifeCompiler
     api 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
 }

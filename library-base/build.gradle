@@ -44,7 +44,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 //    implementation project(path: ':client')
     api rootProject.ext.dependencies.appcompat
-    api rootProject.ext.dependencies.arouterApi
     api rootProject.ext.dependencies.butterknife
 
 

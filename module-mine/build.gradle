@@ -41,9 +41,15 @@ android {
     }
 }
 
+apiProjectConfig {
+    dependencies {
+        implementation project(':library-base')
+    }
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    apiUse project(':library-base') // api模块需要使用
+    implementation project(':library-base')
     implementation project(':library-network')
     implementation project(':library-widget')
     implementation project(':library-aop')

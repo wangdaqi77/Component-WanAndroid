@@ -1,5 +1,6 @@
 package com.zlx.module_project.fragment;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -8,8 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kunpeng.component.ModuleEx;
 import com.kunpeng.component.annotation.api.Launcher;
+import com.kunpeng.component.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -20,7 +22,7 @@ import com.zlx.module_base.base_api.res_data.ArticleListRes;
 import com.zlx.module_base.base_api.res_data.ProjectListRes;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.module_base.base_util.RouterUtil;
+
 
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
@@ -188,7 +190,9 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
         rvContent.setAdapter(adapterArticleList);
         adapterArticleList.setOnItemClickListener((adapter, view1, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
-            RouterUtil.launchWeb(data.get(position).getLink());
+            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(requireActivity());
+            intent.putExtra("webUrl", data.get(position).getLink());
+            startActivity(intent);
         });
         adapterArticleList.setOnItemChildClickListener((adapter, view, position) -> {
             if (view.getId() == R.id.ivCollect) {

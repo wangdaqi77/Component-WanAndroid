@@ -1,18 +1,11 @@
 include ':library-db'
 include ':library-aop'
 include ':library-common'
-include ':module-web'
-//include ':module-mine'
-//include ':module-square'
-//include ':module-public'
 include ':library-network'
-//include ':module-project'
-//include ':module-home'
 include ':library-widget'
 include ':library-base'
-//include ':library-login'
-//include ':app'
 
+// 开发环境，以下三个Module接入时务必移除
 include(":component-api")
 project(":component-api").projectDir = new File("../Component/component-api")
 include(":component-compiler")
@@ -25,8 +18,8 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url "file://${rootProject.projectDir.parentFile.absolutePath}/Component/libraries/repo" }
-        // maven { url "https://wannng.bintray.com/maven" }
+        maven { url "file://${rootProject.projectDir.parentFile.absolutePath}/Component/libraries/repo" }  // 开发环境，接入时务必移除
+        maven { url "https://wannng.bintray.com/maven" }
     }
 
     dependencies {
@@ -37,7 +30,7 @@ buildscript {
 
 apply plugin: 'component-settings'
 component {
-    dev_env = true
+    dev_env = true  // 开发环境，接入时务必移除
 
     app {
         projectName = 'app'
@@ -62,11 +55,16 @@ component {
 
     module("Home") {
         projectName = "module-home"
-        //projectDir = new File("./module-home")
+        dependencies = [
+                module("Web"),
+        ]
     }
 
     module("Project") {
         projectName = "module-project"
+        dependencies = [
+                module("Web"),
+        ]
     }
 
     module("Web") {
@@ -75,15 +73,24 @@ component {
 
     module("Publics") {
         projectName = "module-public"
+        dependencies = [
+                module("Web"),
+        ]
     }
 
     module("Square") {
         projectName = "module-square"
+        dependencies = [
+                module("Web"),
+        ]
     }
 
     module("Mine") {
         projectName = "module-mine"
-        dependencies = [ module("Login") ]
+        dependencies = [
+                module("Login"),
+                module("Web"),
+        ]
     }
 
     module("Login") {

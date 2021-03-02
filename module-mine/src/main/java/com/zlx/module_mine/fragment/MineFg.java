@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.utils.widget.ImageFilterButton;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.kunpeng.component.annotation.api.Launcher;
 import com.zlx.module_base.base_api.res_data.UserInfo;
 import com.zlx.module_base.base_api.util.ApiUtil;

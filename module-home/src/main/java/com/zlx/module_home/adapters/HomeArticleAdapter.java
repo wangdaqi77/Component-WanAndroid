@@ -1,5 +1,6 @@
 package com.zlx.module_home.adapters;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
-import com.zlx.module_base.widget.shinebutton.ShineButton;
-import com.zlx.module_base.base_util.RouterUtil;
+import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.module.api.Web;
+
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_home.R;
 import com.zlx.module_home.R2;
@@ -69,7 +71,9 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
 //            notifyItemChanged(position);
 //        });
         holder.vItem.setOnClickListener(view -> {
-            RouterUtil.launchWeb(articleListResList.get(position).getLink());
+            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(view.getContext());
+            intent.putExtra("webUrl", articleListResList.get(position).getLink());
+            view.getContext().startActivity(intent);
         });
         //holder.shineButton.setChecked(datasBean.isCollect());
     }

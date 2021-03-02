@@ -3,11 +3,12 @@ package com.zlx.module_mine.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Handler;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -21,7 +22,7 @@ import com.zlx.module_base.constant.PageImpl;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
-import com.zlx.module_base.base_util.RouterUtil;
+
 import com.zlx.module_base.base_api.res_data.MyShareBean;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
@@ -122,7 +123,9 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
         });
         adapterArticleList.setOnItemClickListener((adapter, view, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
-            RouterUtil.launchWeb(data.get(position).getLink());
+            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            intent.putExtra("webUrl", data.get(position).getLink());
+            startActivity(intent);
         });
 
         showLoading(smartRefreshLayout);

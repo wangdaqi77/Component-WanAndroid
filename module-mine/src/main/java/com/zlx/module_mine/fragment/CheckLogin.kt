@@ -1,8 +1,8 @@
 package com.zlx.module_mine.fragment
 
 import android.app.Activity
-import com.kunpeng.component.dependency
 import com.kunpeng.component.module.api.Login
+import com.kunpeng.component.moduleOf
 import com.zlx.module_base.database.MMkvHelper
 
 object CheckLogin {
@@ -10,10 +10,8 @@ object CheckLogin {
     fun check(activity: Activity): Boolean {
         val userInfo = MMkvHelper.getInstance().userInfo
         return if (userInfo == null) {
-            dependency<Login>()
-                    .launcher
-                    .newActivityIntentForLoginAc(activity)
-                    .run { activity.startActivity(this) }
+            val intent = moduleOf(Login::class.java) { launcher.newActivityIntentForLoginAc(activity) }
+            activity.startActivity(intent)
             false
         } else {
             true

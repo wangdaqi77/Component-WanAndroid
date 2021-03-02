@@ -1,5 +1,6 @@
 package com.zlx.module_square.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 
 import androidx.annotation.NonNull;
@@ -8,9 +9,11 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.flexbox.FlexboxLayout;
+import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.module.api.Web;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
-import com.zlx.module_base.base_util.RouterUtil;
+
 import com.zlx.module_square.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +48,9 @@ public class RvAdapterNavi extends BaseQuickAdapter<TreeListRes, BaseViewHolder>
             AppCompatTextView labelTv = createOrGetCacheTv(flexLayout);
             labelTv.setText(datasBean.getTitle());
             labelTv.setOnClickListener(v -> {
-                RouterUtil.launchWeb(datasBean.getLink());
+                Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(v.getContext());
+                intent.putExtra("webUrl", datasBean.getLink());
+                v.getContext().startActivity(intent);
             });
             flexLayout.addView(labelTv);
         }
