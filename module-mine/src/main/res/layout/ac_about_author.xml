@@ -8,6 +8,12 @@
 
     <include layout="@layout/top_bar" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="此二维码是原作者的，非Component作者。" />
+
     <ImageView
         android:id="@+id/ivWx"
         android:layout_width="200dp"
@@ -26,4 +32,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="点击保存图片" />
+
+
 </LinearLayout>

@@ -1,8 +1,10 @@
 
-### 简介
-本项目基于 组件化 + Component + Jetpack + Rxjava + Retrofit + AOP 等框架实现的一款开源项目。如有任何疑问或bug欢迎给我提[issues]((https://github.com/1170762202/WanAndroid/issues)),项目会一直维护下去，一起努力打造一个完美的app。
-[源码地址](https://github.com/1170762202/WanAndroid)
+## 简介
+本项目基于[原项目](https://github.com/1170762202/WanAndroid)Fork出来，主要将ARouter框架替换成了[Component](https://github.com/wangdaqi77/Component)来完成组件化。如有任何疑问或bug欢迎给我提[issues]((https://github.com/wangdaqi77/Component-WanAndroid/issues)),项目会一直维护下去，一起努力打造一个完美的组件化App。
+[源码地址](https://github.com/wangdaqi77/Component-WanAndroid)
 喜欢的话，记得给个star哦!
+
+## 以下为[原项目](https://github.com/1170762202/WanAndroid)介绍
 
 ### [1.2.1版本更新](https://github.com/1170762202/WanAndroid/releases)
 * 新增国际化，兼容部分机型国际化失败
