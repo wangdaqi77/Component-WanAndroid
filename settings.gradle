@@ -1,5 +1,4 @@
 include ':library-db'
-include ':library-aop'
 include ':library-common'
 include ':library-network'
 include ':library-widget'
@@ -43,6 +42,7 @@ component {
                 module("Web"),
                 module("Publics"),
                 module("Square"),
+                
         ]
     }
 
@@ -52,11 +52,11 @@ component {
         versionName = "1.0"
     }
 
-
     module("Home") {
         projectName = "module-home"
         dependencies = [
                 module("Web"),
+                
         ]
     }
 
@@ -64,17 +64,22 @@ component {
         projectName = "module-project"
         dependencies = [
                 module("Web"),
+                
         ]
     }
 
     module("Web") {
         projectName = "module-web"
+        dependencies = [
+                
+        ]
     }
 
     module("Publics") {
         projectName = "module-public"
         dependencies = [
                 module("Web"),
+                
         ]
     }
 
@@ -82,6 +87,7 @@ component {
         projectName = "module-square"
         dependencies = [
                 module("Web"),
+                
         ]
     }
 
@@ -90,12 +96,15 @@ component {
         dependencies = [
                 module("Login"),
                 module("Web"),
+                
         ]
     }
 
     module("Login") {
         projectName = "module-login"
-
+        dependencies = [
+                
+        ]
 //        runApp = false
 //        runAppConfig {
 //            applicationId = "com.kunpeng.login"

@@ -57,7 +57,6 @@
 |- WanAndroid
 ||-- app // app 入口
     ||librarys //library库
-      ||--library-aop// aop 封装（登录校验、点击）
       ||--library-db// room数据库封装
       ||--library-network// 网络请求封装（livedata+rxjava+retrofit）
       ||--library-base// 基础封装（BaseAc、BaseFg、BaseUtil等）
@@ -119,8 +118,6 @@ isRunModule=true
 *   [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
 
 *   [AgentWeb](https://github.com/Justson/AgentWeb)
-
-*   [aop](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx)
 
 *   [PersistentCookieJar](https://github.com/franmontiel/PersistentCookieJar)
 

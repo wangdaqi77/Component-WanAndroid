@@ -31,7 +31,6 @@ public class DataUtil {
         mList.add(new OpenSourcePro("hackware1993/MagicIndicator", "A powerful, customizable and extensible ViewPager indicator framework. As the best alternative of ViewPagerIndicator, TabLayout and PagerSlidingTabStrip.", "https://github.com/hackware1993/MagicIndicator"));
         mList.add(new OpenSourcePro("Tencent/MMKV", "MMKV 是基于 mmap 内存映射的 key-value 组件，底层序列化/反序列化使用 protobuf 实现，性能高，稳定性强。从 2015 年中至今在微信上使用，其性能和稳定性经过了时间的验证。近期也已移植到 Android / macOS / Win32 / POSIX 平台，一并开源。", "https://github.com/Tencent/MMKV"));
         mList.add(new OpenSourcePro("scwang90/SmartRefreshLayout", "下拉刷新、上拉加载、二级刷新、淘宝二楼、RefreshLayout、OverScroll，Android智能下拉刷新框架，支持越界回弹、越界拖动，具有极强的扩展性，集成了几十种炫酷的Header和 Footer。", "https://github.com/scwang90/SmartRefreshLayout"));
-        mList.add(new OpenSourcePro("HujiangTechnology/gradle_plugin_android_aspectjx", "A Android gradle plugin that effects AspectJ on Android project and can hook methods in Kotlin, aar and jar file.", "https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx"));
         mList.add(new OpenSourcePro("franmontiel/PersistentCookieJar", "A persistent CookieJar implementation for OkHttp 3 based on SharedPreferences.", "https://github.com/franmontiel/PersistentCookieJar"));
         return mList;
     }

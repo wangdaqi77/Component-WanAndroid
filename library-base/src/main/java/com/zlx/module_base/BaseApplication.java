@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.zlx.module_base.base_manage.ActivityUtil;
+import com.zlx.module_base.module.CommonModuleInit;
 
 
 public class BaseApplication extends Application {
@@ -18,10 +19,8 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         setApplication(this);
-
+        CommonModuleInit.init(this);
     }
-
-
 
 
     /**

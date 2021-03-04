@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-aspectjx'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
@@ -60,16 +59,6 @@ dependencies {
     implementation project(':library-base')
     implementation project(':library-widget')
     implementation project(':library-common')
-    implementation project(':library-aop')
-    if (!isRunModule.toBoolean()) {
-//        implementation project(':module-home')
-//        implementation project(':module-project')
-//        implementation project(':module-square')
-//        implementation project(':module-public')
-//        implementation project(':module-mine')
-//        implementation project(':module-web')
-//        implementation project(':module-login')
-    }
 
 
     kapt rootProject.ext.dependencies.butterknifeCompiler

@@ -3,10 +3,10 @@ package com.zlx.module_project;
 import android.util.Log;
 
 import com.kunpeng.component.ComponentInitializer;
-import com.kunpeng.component.app.AppModule;
-import com.kunpeng.component.config.ComponentConfig;
+
+
 import com.kunpeng.component.module.SafeModuleProvider;
-import com.kunpeng.component.module.SelfModuleProvider;
+;
 import com.zlx.module_base.BaseApplication;
 import com.zlx.module_base.module.CommonModuleInit;
 
@@ -27,22 +27,11 @@ public class ProjectApp extends BaseApplication {
 
     private void configComponent() {
 
-        ComponentConfig config = ComponentConfig.Companion.newConfig(componentConfig -> {
-            componentConfig.setLogger((level, s, throwable) -> Log.i("Component", s));
-            return null;
-        });
-
-        ComponentInitializer.init(config, new AppModule(this) {
-            @Override
-            public void onEvaluate(@NotNull SelfModuleProvider selfModuleProvider) {
-                CommonModuleInit.init(ProjectApp.this);
-            }
-
-            @Override
-            public void onExecute(@NotNull SafeModuleProvider safeApiProvider) {
-
-            }
-        });
+        ComponentInitializer.with(this)
+                .logger((level, msg, throwable) -> {
+                    Log.i("Component", msg);
+                })
+                .await();
 
     }
 }

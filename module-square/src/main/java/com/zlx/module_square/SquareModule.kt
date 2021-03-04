@@ -4,14 +4,14 @@ package com.zlx.module_square
 import com.kunpeng.component.annotation.module.ModuleExecutor
 import com.kunpeng.component.module.Module
 import com.kunpeng.component.module.SafeModuleProvider
-import com.kunpeng.component.module.SelfModuleProvider
+
 
 
 @ModuleExecutor
 class SquareModule: Module {
 
-    override fun onEvaluate(provider: SelfModuleProvider) {
-        // Call here when evaluating, only call self by provider.getSelf().
+    override fun onEvaluate() {
+        // Call here when evaluating.
     }
 
     override fun onExecute(provider: SafeModuleProvider) {
