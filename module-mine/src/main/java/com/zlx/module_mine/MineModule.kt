@@ -5,6 +5,7 @@ import com.kunpeng.component.annotation.module.ModuleExecutor
 import com.kunpeng.component.module.ApiEvent
 import com.kunpeng.component.module.Module
 import com.kunpeng.component.module.SafeModuleProvider
+import com.kunpeng.component.task.TaskRegister
 
 import com.zlx.module_mine.bean.LanguageBean
 
@@ -16,11 +17,11 @@ interface MineEvent : ApiEvent {
 @ModuleExecutor
 class MineModule: Module {
 
-    override fun onEvaluate() {
+    override fun onEvaluate(register: TaskRegister) {
         // Call here when evaluating.
     }
 
-    override fun onExecute(provider: SafeModuleProvider) {
+    override fun onExecuted(provider: SafeModuleProvider) {
         // Now can call other module by provider.getModule().
     }
 }

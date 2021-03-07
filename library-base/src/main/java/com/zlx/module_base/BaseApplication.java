@@ -19,7 +19,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         setApplication(this);
-        CommonModuleInit.init(this);
     }
 
 

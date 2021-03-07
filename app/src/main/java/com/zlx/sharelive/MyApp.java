@@ -33,7 +33,14 @@ public class MyApp extends BaseApplication {
                 .logger((level, msg, throwable) -> {
                     Log.i("Component", msg);
                 })
-                .onExecute((provider) -> {
+                .onEvaluate(register -> {
+                    //register.register(CommonInitTask.class);
+                    register.register(TestTask.class);
+                    register.register(DbInitTask.class).dependOn(TestTask.class);
+                    register.register(MMKVInitTask.class).dependOn(TestTask.class);
+                    register.register(ViewInitTask.class).dependOn(TestTask.class);
+                })
+                .onExecuted(provider -> {
                     // Can use depend module here.
 
                     // 语言改变时切换到主界面
