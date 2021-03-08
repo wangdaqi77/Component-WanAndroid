@@ -4,7 +4,7 @@ package com.zlx.module_web
 import com.kunpeng.component.annotation.module.ModuleExecutor
 import com.kunpeng.component.module.Module
 import com.kunpeng.component.module.SafeModuleProvider
-import com.kunpeng.component.task.TaskRegister
+import com.kunpeng.component.module.task.TaskRegister
 
 
 @ModuleExecutor

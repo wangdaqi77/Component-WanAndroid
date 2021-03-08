@@ -5,7 +5,7 @@ import com.kunpeng.component.annotation.module.ModuleExecutor
 import com.kunpeng.component.module.ApiEvent
 import com.kunpeng.component.module.Module
 import com.kunpeng.component.module.SafeModuleProvider
-import com.kunpeng.component.task.TaskRegister
+import com.kunpeng.component.module.task.TaskRegister
 
 import com.zlx.module_mine.bean.LanguageBean
 

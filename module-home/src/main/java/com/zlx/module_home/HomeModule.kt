@@ -3,7 +3,7 @@ package com.zlx.module_home
 import com.kunpeng.component.annotation.module.ModuleExecutor
 import com.kunpeng.component.module.Module
 import com.kunpeng.component.module.SafeModuleProvider
-import com.kunpeng.component.task.TaskRegister
+import com.kunpeng.component.module.task.TaskRegister
 
 
 @ModuleExecutor

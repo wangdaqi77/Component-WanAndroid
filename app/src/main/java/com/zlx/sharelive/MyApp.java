@@ -28,6 +28,7 @@ public class MyApp extends BaseApplication {
          configComponent();
     }
 
+    @SuppressWarnings({"unchecked", "ConstantConditions"})
     private void configComponent() {
         ComponentInitializer.with(this)
                 .logger((level, msg, throwable) -> {
@@ -35,14 +36,28 @@ public class MyApp extends BaseApplication {
                 })
                 .onEvaluate(register -> {
                     //register.register(CommonInitTask.class);
-                    register.register(TestTask.class);
-                    register.register(DbInitTask.class).dependOn(TestTask.class);
-                    register.register(MMKVInitTask.class).dependOn(TestTask.class);
-                    register.register(ViewInitTask.class).dependOn(TestTask.class);
+                    register.register(
+                            DbInitTask.class,
+                            MMKVInitTask.class,
+                            ViewInitTask.class,
+                            ATask.class,
+                            BTask.class,
+                            CTask.class,
+                            DTask.class,
+                            ETask.class,
+                            FTask.class,
+                            GTask.class
+                    );
+
+                    // 顺序一定是 G,F,E,D,C,B,A
+                    register.find(ATask.class).dependOn(BTask.class);
+                    register.find(BTask.class).dependOn(CTask.class);
+                    register.find(CTask.class).dependOn(DTask.class);
+                    register.find(DTask.class).dependOn(ETask.class);
+                    register.find(ETask.class).dependOn(FTask.class);
+                    register.find(FTask.class).dependOn(GTask.class);
                 })
                 .onExecuted(provider -> {
-                    // Can use depend module here.
-
                     // 语言改变时切换到主界面
                     provider.getModule(Mine.class)
                             .getEvent()
