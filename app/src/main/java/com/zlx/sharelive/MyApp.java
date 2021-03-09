@@ -35,31 +35,16 @@ public class MyApp extends BaseApplication {
                     Log.i("Component", msg);
                 })
                 .onEvaluate(register -> {
-                    //register.register(CommonInitTask.class);
-                    register.register(
-                            DbInitTask.class,
-                            MMKVInitTask.class,
-                            ViewInitTask.class,
-                            ATask.class,
-                            BTask.class,
-                            CTask.class,
-                            DTask.class,
-                            ETask.class,
-                            FTask.class,
-                            GTask.class
-                    );
-
-                    // 顺序一定是 G,F,E,D,C,B,A
-                    register.find(ATask.class).dependOn(BTask.class);
-                    register.find(BTask.class).dependOn(CTask.class);
-                    register.find(CTask.class).dependOn(DTask.class);
-                    register.find(DTask.class).dependOn(ETask.class);
-                    register.find(ETask.class).dependOn(FTask.class);
-                    register.find(FTask.class).dependOn(GTask.class);
+                    register.registers(BTask.class, CTask.class);
+                    register.find(CTask.class).dependOn(BTask.class); // 顺序一定是 C,B
+                    register.register(ATask.class, 100);
                 })
-                .onExecuted(provider -> {
+                .onExecuted((taskOutputProvider, moduleProvider) -> {
+                    String outputOfATask = taskOutputProvider.getOutputOf(ATask.class);
+                    Log.i("Component", "outputOfATask: " + outputOfATask);
+
                     // 语言改变时切换到主界面
-                    provider.getModule(Mine.class)
+                    moduleProvider.getModule(Mine.class)
                             .getEvent()
                             .getLanguageChanged()
                             .observeForeverNoSticky((value) -> {
