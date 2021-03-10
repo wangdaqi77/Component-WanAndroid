@@ -39,13 +39,13 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.2'
-        classpath 'com.kunpeng.tools.gradle:component-plugin:0.0.7'
+        classpath 'com.kunpeng.tools.gradle:component-plugin:0.1.0'
     }
 }
 
 apply plugin: 'component-settings'
 component {
-    dev_env = dev  // 开发环境，接入时务必移除
+    dev_env = dev
 
     app {
         projectName = 'app'
