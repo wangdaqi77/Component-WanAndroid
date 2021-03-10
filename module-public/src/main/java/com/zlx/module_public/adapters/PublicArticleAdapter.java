@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
-import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.Component;
 import com.kunpeng.component.module.api.Web;
 import com.zlx.module_base.widget.shinebutton.ShineButton;
 
@@ -68,7 +68,7 @@ public class PublicArticleAdapter extends DelegateAdapter.Adapter<PublicArticleA
         }
 
         holder.vItem.setOnClickListener(view -> {
-            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(view.getContext());
+            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(view.getContext());
             intent.putExtra("webUrl", articleListResList.get(position).getLink());
             view.getContext().startActivity(intent);
         });

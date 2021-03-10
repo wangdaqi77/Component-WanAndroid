@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
-import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.Component;
 import com.kunpeng.component.annotation.api.Launcher;
 import com.kunpeng.component.module.api.Square;
 import com.zlx.module_base.base_fg.BaseFg;
@@ -76,9 +76,9 @@ public class SquareFg extends BaseFg implements TabPagerListener {
     @Override
     public Fragment getFragment(int position) {
         if (position == 0) {
-            return ModuleEx.moduleOf(Square.class).getLauncher().newFragmentForSystemFg();
+            return Component.moduleOf(Square.class).getLauncher().newFragmentForSystemFg();
         } else if (position == 1) {
-            return ModuleEx.moduleOf(Square.class).getLauncher().newFragmentForNavigationFg();
+            return Component.moduleOf(Square.class).getLauncher().newFragmentForNavigationFg();
         }
         return null;
     }

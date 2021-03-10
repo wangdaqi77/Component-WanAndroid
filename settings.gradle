@@ -4,13 +4,29 @@ include ':library-network'
 include ':library-widget'
 include ':library-base'
 
-// 开发环境，以下三个Module接入时务必移除
-include(":component-api")
-project(":component-api").projectDir = new File("../Component/component-api")
-include(":component-compiler")
-project(":component-compiler").projectDir = new File("../Component/component-compiler")
-include(":component-annotation")
-project(":component-annotation").projectDir = new File("../Component/component-annotation")
+def dev = false
+def localProperties = new Properties()
+def localPropertiesFile = new File(buildscript.sourceFile.parentFile, "local.properties")
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+
+    if (localProperties.getProperty("component.dev") != null) {
+        dev = localProperties.getProperty("component.dev").toBoolean()
+    }
+}
+
+
+if (dev) {
+    include(":component-api")
+    project(":component-api").projectDir = new File("../Component/component-api")
+    include(":component-compiler")
+    project(":component-compiler").projectDir = new File("../Component/component-compiler")
+    include(":component-annotation")
+    project(":component-annotation").projectDir = new File("../Component/component-annotation")
+}
 
 
 buildscript {
@@ -29,7 +45,7 @@ buildscript {
 
 apply plugin: 'component-settings'
 component {
-    dev_env = true  // 开发环境，接入时务必移除
+    dev_env = dev  // 开发环境，接入时务必移除
 
     app {
         projectName = 'app'

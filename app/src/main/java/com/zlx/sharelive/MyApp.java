@@ -3,7 +3,7 @@ package com.zlx.sharelive;
 import android.content.Intent;
 import android.util.Log;
 
-import com.kunpeng.component.ComponentInitializer;
+import com.kunpeng.component.Component;
 import com.kunpeng.component.module.api.Mine;
 
 import com.zlx.module_base.BaseApplication;
@@ -30,7 +30,7 @@ public class MyApp extends BaseApplication {
 
     @SuppressWarnings({"unchecked", "ConstantConditions"})
     private void configComponent() {
-        ComponentInitializer.with(this)
+        Component.initializer(this)
                 .logger((level, msg, throwable) -> {
                     Log.i("Component", msg);
                 })

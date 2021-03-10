@@ -4,7 +4,7 @@ import android.content.Intent;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.Component;
 import com.kunpeng.component.module.api.Web;
 
 import com.zlx.module_mine.R;
@@ -28,7 +28,7 @@ public class RvAdapterOpenSourcePro extends BaseQuickAdapter<OpenSourcePro, Base
         baseViewHolder.setText(R.id.tvTitle, openSourcePro.getAuthor())
                 .setText(R.id.tvContent, openSourcePro.getContent());
         baseViewHolder.itemView.setOnClickListener(view -> {
-            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(view.getContext());
+            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(view.getContext());
             intent.putExtra("webUrl", openSourcePro.getLink());
             view.getContext().startActivity(intent);
         });

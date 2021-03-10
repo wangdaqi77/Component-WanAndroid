@@ -7,7 +7,7 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
-import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.Component;
 import com.kunpeng.component.module.api.Home;
 import com.kunpeng.component.module.api.Mine;
 import com.kunpeng.component.module.api.Project;
@@ -100,15 +100,15 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     @Override
     public Fragment getFragment(int position) {
         if (position == 0) {
-            return ModuleEx.moduleOf(Home.class).getLauncher().newFragmentForHomeFg();
+            return Component.moduleOf(Home.class).getLauncher().newFragmentForHomeFg();
         } else if (position == 1) {
-            return ModuleEx.moduleOf(Project.class).getLauncher().newFragmentForProjectFg();
+            return Component.moduleOf(Project.class).getLauncher().newFragmentForProjectFg();
         } else if (position == 2) {
-            return ModuleEx.moduleOf(Square.class).getLauncher().newFragmentForSquareFg();
+            return Component.moduleOf(Square.class).getLauncher().newFragmentForSquareFg();
         } else if (position == 3) {
-            return ModuleEx.moduleOf(Publics.class).getLauncher().newFragmentForPublicFg();
+            return Component.moduleOf(Publics.class).getLauncher().newFragmentForPublicFg();
         } else if (position == 4) {
-            return ModuleEx.moduleOf(Mine.class).getLauncher().newFragmentForMineFg();
+            return Component.moduleOf(Mine.class).getLauncher().newFragmentForMineFg();
         }
         return null;
     }

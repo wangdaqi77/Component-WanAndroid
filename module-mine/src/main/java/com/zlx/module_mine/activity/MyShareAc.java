@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.Component;
 import com.kunpeng.component.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
@@ -123,7 +123,7 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
         });
         adapterArticleList.setOnItemClickListener((adapter, view, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
-            Intent intent = ModuleEx.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
             intent.putExtra("webUrl", data.get(position).getLink());
             startActivity(intent);
         });

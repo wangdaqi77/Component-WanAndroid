@@ -3,7 +3,7 @@ package com.zlx.module_mine.activity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kunpeng.component.ModuleEx;
+import com.kunpeng.component.Component;
 import com.kunpeng.component.module.api.Mine;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_manage.ActivityUtil;
@@ -46,7 +46,7 @@ public class LanguageSetAc extends BaseAc {
         adapter.setListener(position -> {
             LanguageBean languageBean = adapter.getDatas().get(position);
             LanguageUtil.switchLanguage(languageBean.getLocale());
-            ModuleEx.moduleOf(Mine.class)
+            Component.moduleOf(Mine.class)
                     .getEvent()
                     .getLanguageChanged()
                     .setValue(languageBean);

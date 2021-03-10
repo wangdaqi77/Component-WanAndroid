@@ -2,7 +2,7 @@ package com.zlx.module_public;
 
 import android.util.Log;
 
-import com.kunpeng.component.ComponentInitializer;
+import com.kunpeng.component.Component;
 
 
 import com.kunpeng.component.module.SafeModuleProvider;
@@ -26,7 +26,7 @@ public class PublicApp extends BaseApplication {
     }
 
     private void configComponent() {
-        ComponentInitializer.with(this)
+        Component.initializer(this)
                 .logger((level, msg, throwable) -> {
                     Log.i("Component", msg);
                 })

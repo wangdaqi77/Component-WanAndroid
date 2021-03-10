@@ -1,11 +1,11 @@
 package com.zlx.module_mine
 
 import com.kunpeng.component.annotation.api.Event
-import com.kunpeng.component.annotation.module.ModuleExecutor
+import com.kunpeng.component.annotation.module.ModuleInitializer
 import com.kunpeng.component.module.ApiEvent
 import com.kunpeng.component.module.Module
 import com.kunpeng.component.module.SafeModuleProvider
-import com.kunpeng.component.module.task.SafeTaskOutputProvider
+import com.kunpeng.component.module.task.TaskOutputProvider
 import com.kunpeng.component.module.task.TaskRegister
 
 import com.zlx.module_mine.bean.LanguageBean
@@ -15,14 +15,14 @@ interface MineEvent : ApiEvent {
     val languageChanged: LanguageBean
 }
 
-@ModuleExecutor
+@ModuleInitializer
 class MineModule: Module {
 
     override fun onEvaluate(register: TaskRegister) {
         // Call here when evaluating.
     }
 
-    override fun onExecuted(taskOutputProvider: SafeTaskOutputProvider, moduleProvider: SafeModuleProvider) {
+    override fun onExecuted(taskOutputProvider: TaskOutputProvider, moduleProvider: SafeModuleProvider) {
         // Now can call other module by provider.getModule().
     }
 }
