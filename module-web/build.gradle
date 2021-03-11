@@ -25,16 +25,39 @@ android {
     }
 }
 
-apiProjectConfig {
-    dependencies {
-        implementation project(':library-base')
-    }
-}
-
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':library-base')
     implementation project(':library-base')
     kapt rootProject.ext.dependencies.butterknifeCompiler
     api 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
+}
+
+
+// 本模块对应的xx-api模块配置
+apiModule {
+
+    dependencies {
+        implementation project(':library-base')
+    }
+}
+
+// 当运行app时应用该配置，请放置文件的底部，以便覆盖以上配置
+whenRunApp {
+    android {
+
+        defaultConfig{
+            applicationId "com.zlx.module_web"
+        }
+
+        sourceSets {
+            main {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
+    }
+
+    dependencies {
+        // ...
+    }
 }

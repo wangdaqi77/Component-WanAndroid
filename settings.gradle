@@ -62,12 +62,6 @@ component {
         ]
     }
 
-    runAppConfig {
-        applicationId = "test.component"
-        versionCode = 1
-        versionName = "1.0"
-    }
-
     module("Home") {
         projectName = "module-home"
         dependencies = [
@@ -80,22 +74,21 @@ component {
         projectName = "module-project"
         dependencies = [
                 module("Web"),
-                
-        ]
+       ]
     }
 
     module("Web") {
         projectName = "module-web"
-        dependencies = [
-                
-        ]
+//        runApp = false // 运行app开关
+//        runAppConfig {
+//            enabled = false // 当runApp=true时, enabled=false, applicationId等配置需要在对应项目的build.gradle配置
+//        }
     }
 
     module("Publics") {
         projectName = "module-public"
         dependencies = [
                 module("Web"),
-                
         ]
     }
 
@@ -112,20 +105,18 @@ component {
         dependencies = [
                 module("Login"),
                 module("Web"),
-                
         ]
     }
 
     module("Login") {
         projectName = "module-login"
-        dependencies = [
-                
-        ]
-//        runApp = false
-//        runAppConfig {
-//            applicationId = "com.kunpeng.login"
-//            mainActivity = "com.kunpeng.login.ui.LoginActivity"
-//        }
+
+        runApp = true // 运行app开关
+        runAppConfig {
+            enabled = true  // 当runApp=true时, enabled=false, applicationId等配置需要在对应项目的build.gradle配置
+            applicationId = "x.x.login"
+            mainActivity = "com.zlx.module_login.activity.LoginAc"
+        }
     }
 
 }

@@ -6,9 +6,6 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        if (runApp) {
-            applicationId "com.zlx.square"
-        }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
 
@@ -27,20 +24,8 @@ android {
     }
     sourceSets {
         main {
-            // 1.单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
-            // 我们还可以根据不同工程配置不同的 Java 源代码、不同的 resource 资源文件等的
-            if (runApp) {
-                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            }
+            manifest.srcFile 'src/main/AndroidManifest.xml'
         }
-    }
-}
-
-apiProjectConfig {
-    dependencies {
-        implementation project(':library-base')
     }
 }
 
@@ -52,3 +37,32 @@ dependencies {
     implementation project(':library-network')
     kapt rootProject.ext.dependencies.butterknifeCompiler
 }
+
+
+// 本模块对应的xx-api模块配置
+apiModule {
+
+    dependencies {
+        implementation project(':library-base')
+    }
+}
+
+// 当运行app时应用该配置，请放置文件的底部，以便覆盖以上配置
+//whenRunApp {
+//    android {
+//
+//        defaultConfig{
+//            applicationId "com.zlx.square"
+//        }
+//
+//        sourceSets {
+//            main {
+//                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+//            }
+//        }
+//    }
+//
+//    dependencies {
+//        // ...
+//    }
+//}
