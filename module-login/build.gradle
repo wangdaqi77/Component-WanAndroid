@@ -37,30 +37,23 @@ dependencies {
 }
 
 
-// 本模块对应的xx-api模块配置
-apiModule {
+// 当该module设置runApp=true时才会配置这里，必须放置文件的底部，以便覆盖以上已配置的值。
+buildGradleWhenRunApp {
+
+    android {
+
+        defaultConfig{
+            applicationId "com.zlx.module_login"
+        }
+
+        sourceSets {
+            main {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
+    }
 
     dependencies {
-        implementation project(':library-base')
+        // ...
     }
 }
-
-// 当运行app时应用该配置，请放置文件的底部，以便覆盖以上配置
-//whenRunApp {
-//    android {
-//
-//        defaultConfig{
-//            applicationId "com.zlx.module_login"
-//        }
-//
-//        sourceSets {
-//            main {
-//                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
-//            }
-//        }
-//    }
-//
-//    dependencies {
-//        // ...
-//    }
-//}

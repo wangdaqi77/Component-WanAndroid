@@ -15,6 +15,6 @@ class HomeModule: Module {
     }
 
     override fun onExecuted(taskOutputProvider: TaskOutputProvider, moduleProvider: SafeModuleProvider) {
-        // Now can call other module by provider.getModule().
+        // Now can call other module by provider.moduleOf().
     }
 }

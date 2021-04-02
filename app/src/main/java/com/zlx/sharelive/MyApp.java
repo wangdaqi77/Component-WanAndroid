@@ -44,7 +44,7 @@ public class MyApp extends BaseApplication {
                     Log.i("Component", "outputOfATask: " + outputOfATask);
 
                     // 语言改变时切换到主界面
-                    moduleProvider.getModule(Mine.class)
+                    moduleProvider.moduleOf(Mine.class)
                             .getEvent()
                             .getLanguageChanged()
                             .observeForeverNoSticky((value) -> {

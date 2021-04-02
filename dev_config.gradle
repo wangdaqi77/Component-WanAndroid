@@ -1,0 +1,24 @@
+def dev = false
+def localProperties = new Properties()
+def localPropertiesFile = new File(buildscript.sourceFile.parentFile, "local.properties")
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+
+    if (localProperties.getProperty("component.dev") != null) {
+        dev = localProperties.getProperty("component.dev").toBoolean()
+    }
+}
+
+gradle.settingsEvaluated {
+    if (dev) {
+        include(":component-api")
+        project(":component-api").projectDir = new File("../Component/component-api")
+        include(":component-compiler")
+        project(":component-compiler").projectDir = new File("../Component/component-compiler")
+        include(":component-annotation")
+        project(":component-annotation").projectDir = new File("../Component/component-annotation")
+    }
+}
