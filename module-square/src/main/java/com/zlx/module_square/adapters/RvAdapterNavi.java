@@ -9,8 +9,8 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.flexbox.FlexboxLayout;
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Web;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Web;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 
@@ -48,7 +48,7 @@ public class RvAdapterNavi extends BaseQuickAdapter<TreeListRes, BaseViewHolder>
             AppCompatTextView labelTv = createOrGetCacheTv(flexLayout);
             labelTv.setText(datasBean.getTitle());
             labelTv.setOnClickListener(v -> {
-                Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(v.getContext());
+                Intent intent = P2M.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(v.getContext());
                 intent.putExtra("webUrl", datasBean.getLink());
                 v.getContext().startActivity(intent);
             });

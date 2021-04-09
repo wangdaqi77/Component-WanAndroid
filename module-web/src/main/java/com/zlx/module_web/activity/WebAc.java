@@ -12,7 +12,7 @@ import com.just.agentweb.AgentWeb;
 import com.just.agentweb.DefaultWebClient;
 import com.just.agentweb.WebChromeClient;
 import com.just.agentweb.WebViewClient;
-import com.kunpeng.component.annotation.api.Launcher;
+import com.p2m.annotation.api.Launcher;
 import com.zlx.module_base.base_ac.BaseAc;
 
 import com.zlx.module_network.util.LogUtil;

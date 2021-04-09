@@ -1,6 +1,6 @@
 package com.zlx.module_mine.bean
 
-import com.kunpeng.component.annotation.api.ApiUse
+import com.p2m.annotation.api.ApiUse
 import java.util.*
 
 @ApiUse

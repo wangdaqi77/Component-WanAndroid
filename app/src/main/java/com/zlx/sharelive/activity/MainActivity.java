@@ -7,12 +7,12 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Home;
-import com.kunpeng.component.module.api.Mine;
-import com.kunpeng.component.module.api.Project;
-import com.kunpeng.component.module.api.Publics;
-import com.kunpeng.component.module.api.Square;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Home;
+import com.p2m.module.api.Mine;
+import com.p2m.module.api.Project;
+import com.p2m.module.api.Publics;
+import com.p2m.module.api.Square;
 import com.zlx.module_base.base_ac.BaseAc;
 
 import com.zlx.sharelive.R;
@@ -100,15 +100,15 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     @Override
     public Fragment getFragment(int position) {
         if (position == 0) {
-            return Component.moduleOf(Home.class).getLauncher().newFragmentForHomeFg();
+            return P2M.moduleOf(Home.class).getLauncher().newFragmentForHomeFg();
         } else if (position == 1) {
-            return Component.moduleOf(Project.class).getLauncher().newFragmentForProjectFg();
+            return P2M.moduleOf(Project.class).getLauncher().newFragmentForProjectFg();
         } else if (position == 2) {
-            return Component.moduleOf(Square.class).getLauncher().newFragmentForSquareFg();
+            return P2M.moduleOf(Square.class).getLauncher().newFragmentForSquareFg();
         } else if (position == 3) {
-            return Component.moduleOf(Publics.class).getLauncher().newFragmentForPublicFg();
+            return P2M.moduleOf(Publics.class).getLauncher().newFragmentForPublicFg();
         } else if (position == 4) {
-            return Component.moduleOf(Mine.class).getLauncher().newFragmentForMineFg();
+            return P2M.moduleOf(Mine.class).getLauncher().newFragmentForMineFg();
         }
         return null;
     }

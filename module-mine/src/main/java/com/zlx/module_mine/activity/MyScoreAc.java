@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Web;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -71,7 +71,7 @@ public class MyScoreAc extends BaseAc implements OnRefreshLoadMoreListener {
         setAcTitle("我的积分");
         setRightImg(R.mipmap.ic_question);
         setOnRightImgClickListener(view -> {
-            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            Intent intent = P2M.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
             intent.putExtra("webUrl", C.INTERGRAL_URL);
             startActivity(intent);
         });

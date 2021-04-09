@@ -8,8 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.flexbox.FlexboxLayout;
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Square;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Square;
 import com.zlx.module_base.base_adapter.BaseRecycleAdapter;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 
@@ -51,7 +51,7 @@ public class RvAdapterTree extends BaseRecycleAdapter<TreeListRes> {
             AppCompatTextView labelTv = createOrGetCacheTv(flexLayout);
             labelTv.setText(datasBean.getName());
             labelTv.setOnClickListener(v -> {
-                Intent intent = Component.moduleOf(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
+                Intent intent = P2M.moduleOf(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
                 intent.putExtra("id", datasBean.getId());
                 intent.putExtra("title", datasBean.getName());
                 v.getContext().startActivity(intent);

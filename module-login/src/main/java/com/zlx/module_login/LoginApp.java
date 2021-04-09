@@ -2,10 +2,10 @@ package com.zlx.module_login;
 
 import android.util.Log;
 
-import com.kunpeng.component.Component;
+import com.p2m.core.P2M;
 
 
-import com.kunpeng.component.module.SafeModuleProvider;
+import com.p2m.core.module.SafeModuleProvider;
 ;
 import com.zlx.module_base.BaseApplication;
 import com.zlx.module_base.module.CommonModuleInit;
@@ -24,16 +24,16 @@ public class LoginApp extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        configComponent();
+        configP2M();
     }
 
-    private void configComponent() {
+    private void configP2M() {
 
-        Component.initializer(this)
+        P2M.initializer(this)
                 .logger((level, msg, throwable) -> {
-                    Log.i("Component", msg);
+                    Log.i("P2M", msg);
                 })
-                .await();
+                .start();
 
     }
 }

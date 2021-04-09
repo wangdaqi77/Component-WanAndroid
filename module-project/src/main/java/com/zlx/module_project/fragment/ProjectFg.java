@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kunpeng.component.Component;
-import com.kunpeng.component.annotation.api.Launcher;
-import com.kunpeng.component.module.api.Web;
+import com.p2m.core.P2M;
+import com.p2m.annotation.api.Launcher;
+import com.p2m.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -190,7 +190,7 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
         rvContent.setAdapter(adapterArticleList);
         adapterArticleList.setOnItemClickListener((adapter, view1, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
-            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(requireActivity());
+            Intent intent = P2M.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(requireActivity());
             intent.putExtra("webUrl", data.get(position).getLink());
             startActivity(intent);
         });

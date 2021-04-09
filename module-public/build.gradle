@@ -40,7 +40,7 @@ dependencies {
 
 
 // 当该module设置runApp=true时才会配置这里，必须放置文件的底部，以便覆盖以上已配置的值。
-buildGradleWhenRunApp {
+p2mRunAppBuildGradle {
     android {
 
         defaultConfig{

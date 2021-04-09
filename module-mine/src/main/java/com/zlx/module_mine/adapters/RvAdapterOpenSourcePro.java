@@ -4,8 +4,8 @@ import android.content.Intent;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Web;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Web;
 
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.bean.OpenSourcePro;
@@ -28,7 +28,7 @@ public class RvAdapterOpenSourcePro extends BaseQuickAdapter<OpenSourcePro, Base
         baseViewHolder.setText(R.id.tvTitle, openSourcePro.getAuthor())
                 .setText(R.id.tvContent, openSourcePro.getContent());
         baseViewHolder.itemView.setOnClickListener(view -> {
-            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(view.getContext());
+            Intent intent = P2M.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(view.getContext());
             intent.putExtra("webUrl", openSourcePro.getLink());
             view.getContext().startActivity(intent);
         });

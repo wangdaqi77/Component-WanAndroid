@@ -23,9 +23,9 @@
             <option value="$PROJECT_DIR$/module-public" />
             <option value="$PROJECT_DIR$/module-square" />
             <option value="$PROJECT_DIR$/module-web" />
-            <option value="$PROJECT_DIR$/../Component/component-annotation" />
-            <option value="$PROJECT_DIR$/../Component/component-api" />
-            <option value="$PROJECT_DIR$/../Component/component-compiler" />
+            <option value="$PROJECT_DIR$/../Component/p2m-annotation" />
+            <option value="$PROJECT_DIR$/../Component/p2m-compiler" />
+            <option value="$PROJECT_DIR$/../Component/p2m-core" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

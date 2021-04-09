@@ -11,8 +11,8 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Web;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Web;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -78,7 +78,7 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
         showLoading(smartRefreshLayout);
         adapterArticleList.setOnItemClickListener((adapter, view, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
-            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            Intent intent = P2M.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
             intent.putExtra("webUrl", data.get(position).getLink());
             startActivity(intent);
         });

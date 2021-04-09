@@ -110,5 +110,5 @@
         android:textSize="15sp"
         android:textColor="#999999"
         android:paddingBottom="10dp"
-        android:text="本App由Android小书生独立开发\n由Component作者去除ARouter" />
+        android:text="本App由Android小书生独立开发\n由P2M作者去除ARouter" />
 </LinearLayout>

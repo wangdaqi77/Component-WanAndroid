@@ -1,11 +1,11 @@
 package com.zlx.module_mine
 
-import com.kunpeng.component.annotation.api.Event
-import com.kunpeng.component.annotation.module.ModuleInitializer
-import com.kunpeng.component.module.Module
-import com.kunpeng.component.module.SafeModuleProvider
-import com.kunpeng.component.module.task.TaskOutputProvider
-import com.kunpeng.component.module.task.TaskRegister
+import com.p2m.annotation.api.Event
+import com.p2m.annotation.module.ModuleInitializer
+import com.p2m.core.module.Module
+import com.p2m.core.module.SafeModuleProvider
+import com.p2m.core.module.task.TaskOutputProvider
+import com.p2m.core.module.task.TaskRegister
 
 import com.zlx.module_mine.bean.LanguageBean
 
@@ -17,7 +17,7 @@ interface MineEvent {
 @ModuleInitializer
 class MineModule: Module {
 
-    override fun onEvaluate(register: TaskRegister) {
+    override fun onEvaluate(taskRegister: TaskRegister) {
         // Call here when evaluating.
     }
 

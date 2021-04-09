@@ -1,6 +1,6 @@
 package com.zlx.module_square.fragment;
 
-import com.kunpeng.component.annotation.api.Launcher;
+import com.p2m.annotation.api.Launcher;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_api.util.ApiUtil;
 

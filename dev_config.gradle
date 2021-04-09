@@ -7,18 +7,18 @@ if (localPropertiesFile.exists()) {
         localProperties.load(reader)
     }
 
-    if (localProperties.getProperty("component.dev") != null) {
-        dev = localProperties.getProperty("component.dev").toBoolean()
+    if (localProperties.getProperty("p2m.dev") != null) {
+        dev = localProperties.getProperty("p2m.dev").toBoolean()
     }
 }
 
 gradle.settingsEvaluated {
     if (dev) {
-        include(":component-api")
-        project(":component-api").projectDir = new File("../Component/component-api")
-        include(":component-compiler")
-        project(":component-compiler").projectDir = new File("../Component/component-compiler")
-        include(":component-annotation")
-        project(":component-annotation").projectDir = new File("../Component/component-annotation")
+        include(":p2m-core")
+        project(":p2m-core").projectDir = new File("../Component/p2m-core")
+        include(":p2m-compiler")
+        project(":p2m-compiler").projectDir = new File("../Component/p2m-compiler")
+        include(":p2m-annotation")
+        project(":p2m-annotation").projectDir = new File("../Component/p2m-annotation")
     }
 }

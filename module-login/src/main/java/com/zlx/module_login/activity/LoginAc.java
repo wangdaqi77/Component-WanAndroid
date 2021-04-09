@@ -1,6 +1,6 @@
 package com.zlx.module_login.activity;
 
-import com.kunpeng.component.annotation.api.Launcher;
+import com.p2m.annotation.api.Launcher;
 import com.zlx.module_base.base_ac.BaseAc;
 
 import com.zlx.module_login.R;

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.utils.widget.ImageFilterButton;
 
-import com.kunpeng.component.annotation.api.Launcher;
+import com.p2m.annotation.api.Launcher;
 import com.zlx.module_base.base_api.res_data.UserInfo;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;

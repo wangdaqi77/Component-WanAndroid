@@ -3,13 +3,11 @@ package com.zlx.sharelive;
 import android.content.Intent;
 import android.util.Log;
 
-import com.kunpeng.component.Component;
-import com.kunpeng.component.event.Observable;
-import com.kunpeng.component.module.api.Mine;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Mine;
 
 import com.zlx.module_base.BaseApplication;
 import com.zlx.module_base.base_manage.ActivityUtil;
-import com.zlx.module_mine.bean.LanguageBean;
 import com.zlx.sharelive.activity.MainActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -27,39 +25,39 @@ public class MyApp extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-         configComponent();
+         configP2M();
     }
 
     @SuppressWarnings({"unchecked", "ConstantConditions"})
-    private void configComponent() {
-        Component.initializer(this)
+    private void configP2M() {
+        P2M.initializer(this)
                 .logger((level, msg, throwable) -> {
-                    Log.i("Component", msg);
+                    Log.i("P2M", msg);
                 })
-                .onEvaluate(register -> {
-                    register.registers(BTask.class, CTask.class);
-                    register.register(ATask.class, 100);
+                .onEvaluate(taskRegister -> {
+                    taskRegister.registers(BTask.class, CTask.class);
+                    taskRegister.register(ATask.class, 100);
 
                     // 任务的执行顺序一定是[C -> B]， B的onExecute()可以获得 C的output
-                    register.find(CTask.class).dependOn(BTask.class);
+                    taskRegister.find(CTask.class).dependOn(BTask.class);
                 })
                 .onExecuted((taskOutputProvider, moduleProvider) -> {
                     String outputOfATask = taskOutputProvider.getOutputOf(ATask.class);
-                    Log.i("Component", "outputOfATask: " + outputOfATask);
+                    Log.i("P2M", "outputOfATask: " + outputOfATask);
 
                     // 语言改变时切换到主界面
                     moduleProvider.moduleOf(Mine.class)
                             .getEvent()
                             .getLanguageChanged()
-                            .observeForeverNoSticky((value) -> {
-                                String desc = value.getDesc();
+                            .observeForeverNoSticky((language) -> {
+                                String desc = language.getDesc();
                                 ActivityUtil.finishAllActivity();
                                 Intent intent = new Intent(MyApp.this, MainActivity.class);
                                 intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
                                 MyApp.this.startActivity(intent);
                             });
                 })
-                .await();
+                .start();
     }
 
 }

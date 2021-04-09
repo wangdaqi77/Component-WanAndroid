@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Web;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Web;
 import com.zlx.module_base.constant.C;
 import com.zlx.module_base.base_ac.BaseAc;
 
@@ -50,7 +50,7 @@ public class AboutUs extends BaseAc {
             url = C.SOURCE_URL;
         }
         if (url != null) {
-            Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
+            Intent intent = P2M.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(this);
             intent.putExtra("webUrl", url);
             startActivity(intent);
         }

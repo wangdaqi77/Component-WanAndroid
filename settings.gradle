@@ -14,73 +14,71 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.2'
-        classpath 'com.github.wangdaqi77.Component:component-plugin:0.1.3' // Component插件
+        classpath 'com.github.wangdaqi77.P2M:p2m-plugin:0.1.3' // P2M插件
     }
 }
 
-apply plugin: 'component-settings'
-component {
+apply plugin: 'p2m'
+p2m {
 
     app {
-        projectInclude(":app") {            // 声明project描述
+        include(":app") {            // 声明project描述
             projectDir = new File("./app")  // 声明project路径
         }
-        dependencies = [
-                module("Mine"),
-                module("Login"),
-                module("Home"),
-                module("Project"),
-                module("Web"),
-                module("Publics"),
-                module("Square"),
-                
-        ]
+        dependencies {
+                module("Mine")
+                module("Login")
+                module("Home")
+                module("Project")
+                module("Web")
+                module("Publics")
+                module("Square")
+        }
     }
 
     module("Home") {
-        projectInclude(":module-home")      // 声明project描述
-        dependencies = [
-                module("Web"),
-                
-        ]
+        include(":module-home")      // 声明project描述
+        dependencies {
+                module("Web")
+
+        }
     }
 
     module("Project") {
-        projectInclude(":module-project")      // 声明project描述
-        dependencies = [
-                module("Web"),
-       ]
+        include(":module-project")      // 声明project描述
+        dependencies {
+                module("Web")
+        }
     }
 
     module("Web") {
-        projectInclude(":module-web")      // 声明project描述
+        include(":module-web")      // 声明project描述
     }
 
     module("Publics") {
-        projectInclude(":module-public")      // 声明project描述
-        dependencies = [
-                module("Web"),
-        ]
+        include(":module-public")      // 声明project描述
+        dependencies {
+                module("Web")
+        }
     }
 
     module("Square") {
-        projectInclude(":module-square")      // 声明project描述
-        dependencies = [
-                module("Web"),
-                
-        ]
+        include(":module-square")      // 声明project描述
+        dependencies {
+            module("Web")
+        }
     }
 
     module("Mine") {
-        projectInclude(":module-mine")      // 声明project描述
-        dependencies = [
-                module("Login"),
-                module("Web"),
-        ]
+        include(":module-mine")      // 声明project描述
+        dependencies {
+            module("Login")
+            module("Web")
+        }
     }
 
     module("Login") {
-        projectInclude(":module-login")      // 声明project描述
+        include(":module-login")      // 声明project描述
         runApp = false
     }
 

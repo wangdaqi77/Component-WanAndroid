@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.flexbox.FlexboxLayout;
-import com.kunpeng.component.Component;
-import com.kunpeng.component.module.api.Square;
-import com.kunpeng.component.module.api.Web;
+import com.p2m.core.P2M;
+import com.p2m.module.api.Square;
+import com.p2m.module.api.Web;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_fg.BaseFg;
@@ -99,7 +99,7 @@ public class BaseSquareFg extends BaseFg {
                     textView.setOnClickListener(v -> {
                         Context context = getContext();
                         if (context == null) return;
-                        Intent intent = Component.moduleOf(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
+                        Intent intent = P2M.moduleOf(Square.class).getLauncher().newActivityIntentForSquareListAc(context);
                         intent.putExtra("id", child.getId());
                         intent.putExtra("title", child.getName());
                         startActivity(intent);
@@ -112,7 +112,7 @@ public class BaseSquareFg extends BaseFg {
                     AppCompatTextView textView = findLabel(flexboxLayout);
                     textView.setText(article.getTitle());
                     textView.setOnClickListener(v -> {
-                        Intent intent = Component.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(v.getContext());
+                        Intent intent = P2M.moduleOf(Web.class).getLauncher().newActivityIntentForWebAc(v.getContext());
                         intent.putExtra("webUrl", article.getLink());
                         startActivity(intent);
                     });

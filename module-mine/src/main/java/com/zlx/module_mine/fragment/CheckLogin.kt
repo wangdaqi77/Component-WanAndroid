@@ -1,8 +1,8 @@
 package com.zlx.module_mine.fragment
 
 import android.app.Activity
-import com.kunpeng.component.module.api.Login
-import com.kunpeng.component.moduleOf
+import com.p2m.module.api.Login
+import com.p2m.core.moduleOf
 import com.zlx.module_base.database.MMkvHelper
 
 object CheckLogin {

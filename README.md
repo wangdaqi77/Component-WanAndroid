@@ -1,7 +1,7 @@
 
 ## 简介
-本项目基于[原项目](https://github.com/1170762202/WanAndroid)Fork出来，主要将ARouter框架替换成了[Component](https://github.com/wangdaqi77/Component)来完成组件化。如有任何疑问或bug欢迎给我提[issues]((https://github.com/wangdaqi77/Component-WanAndroid/issues)),项目会一直维护下去，一起努力打造一个完美的组件化App。
-[源码地址](https://github.com/wangdaqi77/Component-WanAndroid)
+本项目基于[原项目](https://github.com/1170762202/WanAndroid)Fork出来，主要将ARouter框架替换成了[P2M](https://github.com/wangdaqi77/P2M)来完成组件化。如有任何疑问或bug欢迎给我提[issues]((https://github.com/wangdaqi77/P2M-WanAndroid/issues)),项目会一直维护下去，一起努力打造一个完美的组件化App。
+[源码地址](https://github.com/wangdaqi77/P2M-WanAndroid)
 喜欢的话，记得给个star哦!
 
 ## 以下为[原项目](https://github.com/1170762202/WanAndroid)介绍
@@ -101,7 +101,7 @@ isRunModule=true
 
 *   [EventBus](https://github.com/greenrobot/EventBus)
 
-*   [Component](https://github.com/wangdaqi77/Component)
+*   [P2M](https://github.com/wangdaqi77/P2M)
 
 *   [ImmersionBar](https://github.com/gyf-dev/ImmersionBar)
 
